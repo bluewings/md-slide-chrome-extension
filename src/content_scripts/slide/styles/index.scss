@@ -1,0 +1,67 @@
+@import './typography.scss';
+
+body {
+  -webkit-font-smoothing: antialiased;
+  .reveal .slides {
+    font-family: 'Gothic A1';
+    font-family: 'Montserrat ExtraBold', 'Black Han Sans';
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Montserrat ExtraBold', 'Black Han Sans';
+      letter-spacing: initial;
+      text-transform: none;
+    }
+    pre {
+      code {
+        padding: 12px 16px;
+      }
+    }
+    ul,
+    ol {
+      margin-left: 20px;
+      padding-left: 20px;
+    }
+    ul ul,
+    ul ol,
+    ol ol,
+    ol ul {
+      margin-left: 20px;
+      padding-left: 20px;
+    }
+  }
+  .reveal .slides {
+    > section,
+    > section > section {
+      &.left {
+        text-align: left;
+        pre {
+          margin-left: 0;
+          margin-right: 0;
+          width: 100%;
+        }
+      }
+      &.right {
+        text-align: right;
+        pre {
+          margin-left: 0;
+          margin-right: 0;
+          width: 100%;
+        }
+      }
+      &.center {
+        text-align: center;
+      }
+      &.top {
+        top: 0 !important;
+      }
+      &.bottom {
+        top: auto !important;
+        bottom: 0 !important;
+      }
+    }
+  }
+}

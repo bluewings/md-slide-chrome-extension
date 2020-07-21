@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name": "Markdown Slide",
+  "version": "1.0.0",
+  "description": "Markdown Slide",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "scripts": ["background/index.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/**/*", "https://oss.navercorp.com/**/*"],
+      "js": ["content_scripts/index.js"]
+    }
+  ],
+  "permissions": ["https://github.com/**/*", "https://oss.navercorp.com/**/*", "https://raw.oss.navercorp.com/**/*"],
+
+  "web_accessible_resources": [
+    "images/*.png",
+    "style/double-rainbow.css",
+    "script/double-rainbow.js",
+    "script/main.js",
+    "templates/*",
+    "content_scripts/*"
+  ]
+}
