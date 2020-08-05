@@ -9,6 +9,7 @@ import { toKebabCase } from '../../helpers/util';
 import { useHandle } from '../../hooks';
 import useChannel from './useChannel';
 import { getRootStyle } from '../../theme';
+import activateWidget from './activateWidget';
 import '../../theme/theme.scss';
 
 function Slide() {
@@ -70,6 +71,7 @@ function Slide() {
           console.log(revealjs);
         }
       }
+      activateWidget(container);
     }
   });
 

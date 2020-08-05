@@ -111,6 +111,18 @@ const parseText = (text: string = '', parent?: any) => {
       .replace(/(\n```)([a-z]{0,})\n([\s\S]+?)(```\n)/, (whole, p1, du, p2, p3) =>
         p2.trim().match(/^<[\s\S]+>$/) ? p1 + 'html' + '\n' + p2.replace(/</g, '&lt').replace(/>/g, '&gt') + p3 : whole,
       )
+      .replace(/(\n```yaml)([a-z]{0,})\n([\s\S]+?)(```\n)/g, (whole, p1, p2, p3, p4) => {
+        try {
+          const jsonData: any = safeLoad(p3);
+          if (jsonData && typeof jsonData.chart === 'string' && jsonData.data) {
+            return `\n<div data-widget-type="chart" data-widget-data="${encodeURIComponent(
+              JSON.stringify(jsonData.data),
+            )}"></div>\n`;
+          }
+        } catch {}
+
+        return whole;
+      })
       .trim();
   }
   return {
