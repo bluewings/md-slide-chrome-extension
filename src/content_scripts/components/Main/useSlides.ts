@@ -9,7 +9,7 @@ enum Mode {
 function getTimelineComments() {
   return Array.from(document.querySelectorAll('.timeline-comment'))
     .map((comment) => {
-      const commentBody = comment.querySelector('.js-comment-body');
+      const commentBody = comment.querySelector('.comment-body');
       const textarea = comment.querySelector('textarea.js-comment-field') as HTMLTextAreaElement;
       const mode = !commentBody || comment.className.match(/is-comment-editing/) ? Mode.EDIT : Mode.VIEW;
       const html = mode === Mode.VIEW ? commentBody && commentBody.innerHTML.trim() : null;
@@ -18,7 +18,7 @@ function getTimelineComments() {
     })
     .filter(
       ({ html, input }) =>
-        (html && html.search(/^<p><code>use slide<\/code><\/p>\n/) !== -1) ||
+        (html && html.search(/^<p[^>]*><code>use slide<\/code><\/p>\n/) !== -1) ||
         (input && input.search(/^`use\s+slide`\s*\n*/) !== -1),
     );
 }

@@ -7,7 +7,7 @@ function Main() {
   const { config, sections } = useSlides();
 
   const Portal = usePortal(
-    '.gutter-condensed > .flex-shrink-0:last-child, #discussion_bucket > .col-3:last-child',
+    '.Layout-sidebar',
     (parent: Element) => {
       const div = document.createElement('div');
       div.style.position = 'sticky';
