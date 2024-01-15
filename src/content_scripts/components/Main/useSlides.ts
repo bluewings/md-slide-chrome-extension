@@ -18,7 +18,7 @@ function getTimelineComments() {
     })
     .filter(
       ({ html, input }) =>
-        (html && html.search(/^<p[^>]*><code>use slide<\/code><\/p>\n/) !== -1) ||
+        (html && html.search(/^<p[^>]*><code[^>]*>use slide<\/code><\/p>\n/) !== -1) ||
         (input && input.search(/^`use\s+slide`\s*\n*/) !== -1),
     );
 }
